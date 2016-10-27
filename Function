@@ -1,4 +1,7 @@
-vector<int> largestDivisibleSubset(vector<int>& nums) {
+#include<iostream>
+#include<vector>
+#include<algorithms>
+vector<int> largestDivisibleSubset(vector<int>& nums) {//思想：定义一个二维容器，每一个容器元素保存满足条件的序列，且序列最后一个元素都是对应nums中的元素
        vector<vector<int>>result(nums.size());//存储每一个满足条件的容器
        vector<int>ret;
        sort(nums.begin(),nums.end());//排序
@@ -10,7 +13,7 @@ vector<int> largestDivisibleSubset(vector<int>& nums) {
                result[i]=result[j];
            }
            result[i].push_back(nums[i]);//nums每个元素都放在对应的result[i]中的最后一个
-           if(result[i].size()>ret.size()) ret=result[i];//返回最大的
+           if(result[i].size()>ret.size()) ret=result[i];//返回元素数目最多的容器
        }
        return ret;
     }
